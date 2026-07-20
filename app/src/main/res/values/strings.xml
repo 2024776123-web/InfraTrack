@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InfraTrack</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_feed">Feed</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_report">Report</string>
+    <string name="nav_about">About</string>
+
+    <!-- Feed -->
+    <string name="feed_title">Latest Hazard Reports</string>
+    <string name="feed_empty">No hazard reports yet. Pull down to refresh.</string>
+    <string name="feed_error">Couldn\'t load reports. Check your internet connection.</string>
+
+    <!-- Map -->
+    <string name="map_no_internet">No internet connection — hazard markers can\'t be loaded.</string>
+
+    <!-- Report form -->
+    <string name="report_title">Report a Hazard</string>
+    <string name="hint_hazard_type">Hazard type</string>
+    <string name="hint_location_name">Location name</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_reporter_name">Your name</string>
+    <string name="btn_use_gps">Use my current GPS location</string>
+    <string name="btn_submit">Submit report</string>
+    <string name="gps_captured">Location captured: %1$.5f, %2$.5f</string>
+    <string name="gps_missing">Please capture your GPS location first.</string>
+    <string name="submit_success">Hazard report submitted successfully.</string>
+    <string name="submit_error">Failed to submit report. Please try again.</string>
+    <string name="field_required">This field is required.</string>
+
+    <!-- About -->
+    <string name="about_app_name">InfraTrack</string>
+    <string name="about_description">Crowdsourcing Infrastructure Hazard Application. InfraTrack helps users identify hazards such as potholes, flooding, fallen trees, and road closures before or during their journey, using reports submitted by the community and displayed on a live, crowdsourced map.</string>
+    <string name="about_group">GROUP: CDCS240/5A</string>
+    <string name="about_course">ICT602 Mobile Technology and Development</string>
+    <string name="about_github">github.com/your-team/infratrack</string>
+</resources>

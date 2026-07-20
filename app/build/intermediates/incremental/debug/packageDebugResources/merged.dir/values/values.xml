@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#F5A623</color>
+    <color name="accent_dark">#D68910</color>
+    <color name="background">#F5F6F8</color>
+    <color name="black">#000000</color>
+    <color name="danger">#E24C4B</color>
+    <color name="divider">#E2E5EA</color>
+    <color name="ic_launcher_background">#1E3A5F</color>
+    <color name="primary">#1E3A5F</color>
+    <color name="primary_dark">#132A47</color>
+    <color name="primary_light">#3C5A80</color>
+    <color name="status_connected">#2E9E5B</color>
+    <color name="status_disconnected">#E24C4B</color>
+    <color name="success">#2E9E5B</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#1B1F27</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="white">#FFFFFF</color>
+    <string name="about_app_name">InfraTrack</string>
+    <string name="about_course">ICT602 Mobile Technology and Development</string>
+    <string name="about_description">Crowdsourcing Infrastructure Hazard Application. InfraTrack helps users identify hazards such as potholes, flooding, fallen trees, and road closures before or during their journey, using reports submitted by the community and displayed on a live, crowdsourced map.</string>
+    <string name="about_github">github.com/your-team/infratrack</string>
+    <string name="about_group">GROUP: CDCS240/5A</string>
+    <string name="app_name">InfraTrack</string>
+    <string name="btn_submit">Submit report</string>
+    <string name="btn_use_gps">Use my current GPS location</string>
+    <string name="feed_empty">No hazard reports yet. Pull down to refresh.</string>
+    <string name="feed_error">Couldn\'t load reports. Check your internet connection.</string>
+    <string name="feed_title">Latest Hazard Reports</string>
+    <string name="field_required">This field is required.</string>
+    <string name="gcm_defaultSenderId" translatable="false">170159892416</string>
+    <string name="google_api_key" translatable="false">AIzaSyC195JTadtg8myiFinZ5NYUWb6wjE_Wi-A</string>
+    <string name="google_app_id" translatable="false">1:170159892416:android:cefd404af790bcf7750a25</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC195JTadtg8myiFinZ5NYUWb6wjE_Wi-A</string>
+    <string name="google_storage_bucket" translatable="false">infratrack-96560.firebasestorage.app</string>
+    <string name="gps_captured">Location captured: %1$.5f, %2$.5f</string>
+    <string name="gps_missing">Please capture your GPS location first.</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_hazard_type">Hazard type</string>
+    <string name="hint_location_name">Location name</string>
+    <string name="hint_reporter_name">Your name</string>
+    <string name="map_no_internet">No internet connection — hazard markers can\'t be loaded.</string>
+    <string name="nav_about">About</string>
+    <string name="nav_feed">Feed</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_report">Report</string>
+    <string name="project_id" translatable="false">infratrack-96560</string>
+    <string name="report_title">Report a Hazard</string>
+    <string name="submit_error">Failed to submit report. Please try again.</string>
+    <string name="submit_success">Hazard report submitted successfully.</string>
+    <style name="Theme.InfraTrack" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/primary_dark</item>
+    </style>
+    <style name="Theme.InfraTrack.CardText">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>

@@ -1,0 +1,3 @@
+# Copy this file to local.properties (which is git-ignored) and fill in your real values.
+sdk.dir=/path/to/your/Android/sdk
+MAPS_API_KEY=AIzaSyD_your_actual_key_here

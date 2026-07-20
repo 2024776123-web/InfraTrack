@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_fragment_hazard_list.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_hazard_list.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_gps.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_gps.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_map.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_map.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_fragment_hazard_map.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_hazard_map.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_activity_main.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_feed.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_feed.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_report.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_report.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_about.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_about.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_hazard_marker.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_hazard_marker.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_custom_info_window.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/custom_info_window.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_fragment_report_hazard.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_report_hazard.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_item_hazard.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/item_hazard.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_bg_rounded_card.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/bg_rounded_card.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/layout_fragment_about.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_about.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/drawable_status_dot.xml.flat",
+        "source": "com.uitm.infratrack.app-main-46:/drawable/status_dot.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-debug-44:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.uitm.infratrack.app-main-46:/mipmap-xhdpi/ic_launcher.webp"
+    }
+]

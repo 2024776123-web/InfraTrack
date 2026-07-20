@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170159892416",
+    "project_id": "infratrack-96560",
+    "storage_bucket": "infratrack-96560.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170159892416:android:cefd404af790bcf7750a25",
+        "android_client_info": {
+          "package_name": "com.uitm.infratrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC195JTadtg8myiFinZ5NYUWb6wjE_Wi-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

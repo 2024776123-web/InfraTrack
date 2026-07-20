@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary: deep road-asphalt navy -->
+    <color name="primary">#1E3A5F</color>
+    <color name="primary_dark">#132A47</color>
+    <color name="primary_light">#3C5A80</color>
+
+    <!-- Accent: hazard/warning amber, used for alerts, FAB, highlights -->
+    <color name="accent">#F5A623</color>
+    <color name="accent_dark">#D68910</color>
+
+    <!-- Status colors -->
+    <color name="danger">#E24C4B</color>
+    <color name="success">#2E9E5B</color>
+
+    <!-- Neutrals -->
+    <color name="background">#F5F6F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#1B1F27</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="divider">#E2E5EA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Connection indicator dot (README: green = connected) -->
+    <color name="status_connected">#2E9E5B</color>
+    <color name="status_disconnected">#E24C4B</color>
+</resources>

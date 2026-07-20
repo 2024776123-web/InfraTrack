@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/custom_info_window.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/custom_info_window.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/fragment_hazard_map.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_hazard_map.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/fragment_hazard_list.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_hazard_list.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/fragment_about.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_about.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/item_hazard.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/item_hazard.xml"
+    },
+    {
+        "merged": "com.uitm.infratrack.app-mergeDebugResources-43:/layout/fragment_report_hazard.xml",
+        "source": "com.uitm.infratrack.app-main-46:/layout/fragment_report_hazard.xml"
+    }
+]
