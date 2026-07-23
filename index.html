@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfraTrack — Hazard Dispatch</title>
+  <style>
+    :root {
+      --bg: #14161a;
+      --panel: #1c1f26;
+      --panel-2: #23272f;
+      --line: #333944;
+      --ink: #e8eaed;
+      --muted: #9aa2ad;
+      --amber: #ffb020;
+      --amber-dim: #6b4d13;
+      --red: #ff5c5c;
+      --green: #34d399;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+    .mono { font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; }
+
+    /* Top bar */
+    header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 22px;
+      background: var(--panel);
+      border-bottom: 2px solid var(--amber);
+    }
+    .chevrons { display: flex; gap: 2px; }
+    .chevrons span {
+      width: 0; height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 12px solid var(--amber);
+    }
+    header h1 { font-size: 18px; margin: 0; letter-spacing: .5px; }
+    header h1 small { display: block; font-size: 11px; color: var(--muted); font-weight: 400; letter-spacing: 2px; text-transform: uppercase; }
+    .status { margin-left: auto; font-size: 12px; color: var(--muted); }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); margin-right: 6px; }
+    .dot.on { background: var(--green); }
+    .dot.off { background: var(--red); }
+
+    .wrap {
+      max-width: 1100px; margin: 0 auto; padding: 24px;
+      display: grid; grid-template-columns: 380px 1fr; gap: 24px;
+    }
+    @media (max-width: 820px) { .wrap { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 10px; overflow: hidden;
+    }
+    .card-head {
+      padding: 14px 18px; border-bottom: 1px solid var(--line);
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber);
+    }
+    .card-body { padding: 18px; }
+
+    label { display: block; font-size: 12px; color: var(--muted); margin: 14px 0 6px; letter-spacing: .3px; }
+    label:first-child { margin-top: 0; }
+    input, select, textarea {
+      width: 100%; padding: 10px 12px;
+      background: var(--panel-2); border: 1px solid var(--line);
+      border-radius: 7px; color: var(--ink); font-size: 14px; font-family: inherit;
+    }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--amber); border-color: transparent; }
+    textarea { resize: vertical; min-height: 68px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .btn {
+      width: 100%; margin-top: 18px; padding: 12px;
+      background: var(--amber); color: #1a1300; border: none;
+      border-radius: 7px; font-weight: 700; font-size: 14px; cursor: pointer;
+      letter-spacing: .5px;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+    .btn-ghost {
+      background: transparent; color: var(--amber);
+      border: 1px solid var(--amber-dim); font-weight: 600; margin-top: 8px;
+    }
+
+    .msg { margin-top: 12px; font-size: 13px; min-height: 18px; }
+    .msg.ok { color: var(--green); }
+    .msg.err { color: var(--red); }
+
+    /* List */
+    .list-head { display: flex; align-items: center; }
+    .count { margin-left: auto; font-size: 12px; color: var(--muted); }
+    .hazard {
+      display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: start;
+      padding: 16px 18px; border-bottom: 1px solid var(--line);
+    }
+    .hazard:last-child { border-bottom: none; }
+    .tag {
+      font-size: 11px; font-weight: 700; letter-spacing: .5px;
+      padding: 4px 9px; border-radius: 5px; white-space: nowrap;
+      background: var(--amber-dim); color: var(--amber);
+      border: 1px solid var(--amber);
+    }
+    .hazard h3 { margin: 0 0 4px; font-size: 15px; }
+    .hazard p { margin: 0 0 6px; font-size: 13px; color: var(--muted); }
+    .meta { font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 12px; }
+    .meta b { color: var(--ink); font-weight: 600; }
+    .del {
+      background: transparent; border: 1px solid var(--line); color: var(--muted);
+      border-radius: 6px; padding: 6px 10px; cursor: pointer; font-size: 12px;
+    }
+    .del:hover { border-color: var(--red); color: var(--red); }
+    .empty { padding: 40px 18px; text-align: center; color: var(--muted); font-size: 14px; }
+    .empty b { color: var(--ink); display: block; margin-bottom: 6px; }
+
+    .banner {
+      background: var(--amber-dim); color: var(--amber); border: 1px solid var(--amber);
+      padding: 12px 16px; border-radius: 8px; font-size: 13px; margin: 0 24px 0;
+    }
+    .banner code { background: rgba(0,0,0,.3); padding: 1px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="chevrons"><span></span><span></span><span></span></div>
+    <h1>InfraTrack<small>Hazard Dispatch Console</small></h1>
+    <div class="status"><span id="dot" class="dot"></span><span id="statusText">Connecting…</span></div>
+  </header>
+
+  <div id="setupBanner" class="banner" style="display:none; margin-top:20px;">
+    ⚠️ Firebase isn't configured yet. Open <code>index.html</code> and paste your project's config into the <code>firebaseConfig</code> object near the bottom.
+  </div>
+
+  <div class="wrap">
+    <!-- ADD FORM -->
+    <div class="card" style="height: fit-content;">
+      <div class="card-head">Report a hazard</div>
+      <div class="card-body">
+        <label for="hazardType">Hazard type</label>
+        <select id="hazardType">
+          <option>Pothole</option>
+          <option>Flooding</option>
+          <option>Fallen Tree</option>
+          <option>Damaged Traffic Light</option>
+          <option>Broken Streetlight</option>
+          <option>Roadworks</option>
+          <option>Road Closure</option>
+          <option>Landslide</option>
+          <option>Other</option>
+        </select>
+
+        <label for="locationName">Location name</label>
+        <input id="locationName" placeholder="e.g. Jalan Machang, near KM12" />
+
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Short description of the hazard"></textarea>
+
+        <div class="row">
+          <div>
+            <label for="latitude">Latitude</label>
+            <input id="latitude" class="mono" placeholder="5.2632" />
+          </div>
+          <div>
+            <label for="longitude">Longitude</label>
+            <input id="longitude" class="mono" placeholder="102.1745" />
+          </div>
+        </div>
+        <button class="btn btn-ghost" id="useLocation" type="button">📍 Use my current location</button>
+
+        <label for="reporterName">Reported by</label>
+        <input id="reporterName" placeholder="Reporter's name" />
+
+        <button class="btn" id="saveBtn">Save hazard</button>
+        <div class="msg" id="msg"></div>
+      </div>
+    </div>
+
+    <!-- LIST -->
+    <div class="card">
+      <div class="card-head list-head">
+        <span>Live hazard feed</span>
+        <span class="count" id="count">—</span>
+      </div>
+      <div id="list">
+        <div class="empty">Loading…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- Firebase logic (modular SDK v10 via CDN)                      -->
+  <!-- ============================================================= -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getFirestore, collection, addDoc, deleteDoc, doc,
+      onSnapshot, query, orderBy, serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // ▼▼▼ PASTE YOUR FIREBASE CONFIG HERE ▼▼▼
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsfn1yUqOlQEq6-KJP59xz_g6PpAxEcks",
+      authDomain: "infratrack-96560.firebaseapp.com",
+      projectId: "infratrack-96560",
+      storageBucket: "infratrack-96560.firebasestorage.app",
+      messagingSenderId: "170159892416",
+      appId: "1:170159892416:web:24ee8222c79f0781750a25"
+    };
+    // ▲▲▲ PASTE YOUR FIREBASE CONFIG HERE ▲▲▲
+
+    const $ = (id) => document.getElementById(id);
+    const notConfigured = firebaseConfig.apiKey === "YOUR_API_KEY";
+
+    if (notConfigured) {
+      $("setupBanner").style.display = "block";
+      $("statusText").textContent = "Not configured";
+      $("dot").className = "dot off";
+      $("list").innerHTML = '<div class="empty"><b>Set up Firebase first</b>Follow the README, paste your config, then reload.</div>';
+    } else {
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const hazardsRef = collection(db, "hazards");
+
+      $("statusText").textContent = "Connected";
+      $("dot").className = "dot on";
+
+      // --- Save a hazard ---
+      $("saveBtn").addEventListener("click", async () => {
+        const data = {
+          hazardType: $("hazardType").value,
+          locationName: $("locationName").value.trim(),
+          description: $("description").value.trim(),
+          latitude: parseFloat($("latitude").value),
+          longitude: parseFloat($("longitude").value),
+          reporterName: $("reporterName").value.trim(),
+          reportedAt: serverTimestamp()
+        };
+
+        // Validation
+        if (!data.locationName || !data.description || !data.reporterName) {
+          return showMsg("Fill in location, description, and reporter name.", "err");
+        }
+        if (isNaN(data.latitude) || isNaN(data.longitude)) {
+          return showMsg("Latitude and longitude must be valid numbers.", "err");
+        }
+
+        $("saveBtn").disabled = true;
+        try {
+          await addDoc(hazardsRef, data);
+          showMsg("Hazard saved and pushed to the feed.", "ok");
+          $("locationName").value = "";
+          $("description").value = "";
+          $("latitude").value = "";
+          $("longitude").value = "";
+          $("reporterName").value = "";
+        } catch (e) {
+          showMsg("Could not save: " + e.message, "err");
+        } finally {
+          $("saveBtn").disabled = false;
+        }
+      });
+
+      // --- Live list (auto-updates) ---
+      const q = query(hazardsRef, orderBy("reportedAt", "desc"));
+      onSnapshot(q, (snap) => {
+        $("count").textContent = snap.size + (snap.size === 1 ? " report" : " reports");
+        if (snap.empty) {
+          $("list").innerHTML = '<div class="empty"><b>No hazards yet</b>Add one on the left — it appears here instantly.</div>';
+          return;
+        }
+        let html = "";
+        snap.forEach((d) => {
+          const h = d.data();
+          const when = h.reportedAt?.toDate
+            ? h.reportedAt.toDate().toLocaleString()
+            : "just now";
+          html += `
+            <div class="hazard">
+              <span class="tag">${esc(h.hazardType)}</span>
+              <div>
+                <h3>${esc(h.locationName)}</h3>
+                <p>${esc(h.description)}</p>
+                <div class="meta">
+                  <span class="mono">📍 ${h.latitude}, ${h.longitude}</span>
+                  <span>👤 <b>${esc(h.reporterName)}</b></span>
+                  <span>🕒 ${when}</span>
+                </div>
+              </div>
+              <button class="del" data-id="${d.id}">Delete</button>
+            </div>`;
+        });
+        $("list").innerHTML = html;
+
+        document.querySelectorAll(".del").forEach((btn) => {
+          btn.addEventListener("click", async () => {
+            if (confirm("Delete this hazard report?")) {
+              await deleteDoc(doc(db, "hazards", btn.dataset.id));
+            }
+          });
+        });
+      }, (err) => {
+        $("list").innerHTML = '<div class="empty"><b>Could not load feed</b>' + esc(err.message) + '</div>';
+      });
+    }
+
+    // --- Helpers ---
+    function showMsg(text, kind) {
+      const m = $("msg");
+      m.textContent = text;
+      m.className = "msg " + kind;
+      setTimeout(() => { m.textContent = ""; m.className = "msg"; }, 4000);
+    }
+    function esc(s) {
+      return String(s ?? "").replace(/[&<>"']/g, (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    // --- Geolocation autofill (works even before Firebase is set up) ---
+    $("useLocation").addEventListener("click", () => {
+      if (!navigator.geolocation) return alert("Geolocation not supported by this browser.");
+      $("useLocation").textContent = "📍 Getting location…";
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          $("latitude").value = pos.coords.latitude.toFixed(6);
+          $("longitude").value = pos.coords.longitude.toFixed(6);
+          $("useLocation").textContent = "📍 Use my current location";
+        },
+        () => {
+          alert("Could not get location. Type the coordinates manually.");
+          $("useLocation").textContent = "📍 Use my current location";
+        }
+      );
+    });
+  </script>
+</body>
+</html>
